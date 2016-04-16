@@ -1,0 +1,25 @@
+{
+  "name": "administrator",
+  "version": "1.0.0",
+  "description": "Globant social integratio",
+  "main": "index.js",
+  "scripts": {
+    "test": "init"
+  },
+  "keywords": [
+    "angular",
+    "node",
+    "es6"
+  ],
+  "author": "Team",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.12.3",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-inject": "^4.0.0",
+    "gulp-rollup": "^1.8.0",
+    "rollup-plugin-includepaths": "^0.1.2",
+    "stream-series": "^0.1.1"
+  }
+}
