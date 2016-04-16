@@ -14,6 +14,7 @@ gulp.task('js', function() {
         .pipe(gulp.dest('./dist'))
     return gulp.src('index.html')
         .pipe(inject(series(appJS), {
+            ignorePath:'dist',
             name: 'bundle',
             relative: true
         }))
