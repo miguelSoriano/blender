@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:util="http://www.springframework.org/schema/util"
 	xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
@@ -11,18 +13,21 @@
         http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd"
 	default-lazy-init="false">
 
+    <context:annotation-config />
+    <context:component-scan base-package="globant.blender" />
+
 	<!--Properties configuration -->
 	<bean id="propertyHolder"
 		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
 		<property name="locations">
 			<list>
-				<value>classpath:config/${env}/blender.properties
-				</value>
+				<value>classpath:config/${env}/blender.properties</value>
+				<value>classpath:config/${env}/db.properties</value>
 			</list>
 		</property>
 		<property name="ignoreResourceNotFound" value="true" />
 	</bean>
 
-
+    <import resource="classpath:spring/jpa-config.xml" />
 	<import resource="classpath*:spring/application-context.xml" />
 </beans>
