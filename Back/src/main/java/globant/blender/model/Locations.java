@@ -18,7 +18,7 @@ public class Locations {
 	
 	@Id 
 	@GeneratedValue
-	@Column(name="id")
+	@Column(name="idLocations")
 	private int id;
 	
 	@Column(name="title")	
