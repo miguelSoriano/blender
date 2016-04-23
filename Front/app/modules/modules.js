@@ -1,3 +1,8 @@
 import layout from './layout/layout';
-let modules = angular.module('modules',[layout.name])
+import login from './login/login';
+
+let modules = angular.module('modules',[
+	layout.name,
+	login.name
+])
 export default modules;

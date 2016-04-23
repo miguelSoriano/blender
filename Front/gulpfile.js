@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     series = require('stream-series'),
     sync = require('browser-sync'),
     rollPaths = require('rollup-plugin-includepaths'),
+    webpack = require('gulp-webpack'),
     libs = require('./config.libs.js')
 
 gulp.task('js', function() {
@@ -17,6 +18,21 @@ gulp.task('js', function() {
         .pipe(gulp.dest('./dist'))
 
     var appJS = gulp.src('./app/*.js')
+        // .pipe(webpack({
+        //     watch: true,
+        //     module: {
+        //         loaders: [{
+        //             test: /\.css$/,
+        //             loader: 'style!css'
+        //         }, {
+        //             test: /\.js$/,
+        //             exclude: /node_modules/,
+        //             loader: "babel-loader"
+        //         }]
+        //     }
+        // }))
+        // .pipe(babel())
+        //.pipe(gulp.dest('./dist'))
         .pipe(rollup({
             format: 'cjs',
             plugins: [rollPaths()]
@@ -24,10 +40,15 @@ gulp.task('js', function() {
         .pipe(babel())
         .pipe(gulp.dest('./dist'))
 
+
+
     var appLibsCSS = gulp.src(libs.css);
     var appCSS = gulp.src('./app/*.css');
     var mergeCSS = merge(appLibsCSS, appCSS)
         .pipe(cssConcat('app.css'))
+        .pipe(gulp.dest('./dist'))
+
+    var images = gulp.src('assets/**')
         .pipe(gulp.dest('./dist'))
 
     return gulp.src('index.html')
@@ -42,11 +63,20 @@ gulp.task('js', function() {
         }))
         .pipe(gulp.dest('./dist'))
 })
+
 gulp.task('server', function() {
     sync({
         server: './dist'
     })
 })
-gulp.task('default', ['js', 'server'], function() {
+gulp.task('watch', function() {
+
+    gulp.watch(['app/**/*.js'], ['js']).on('change', sync.reload)
+    gulp.watch('./index.html', ['js']).on('change', sync.reload)
+
+    gulp.watch(['app/**/*.css'], ['js']).on('change', sync.reload)
+})
+
+gulp.task('default', ['js', 'server', 'watch'], function() {
 
 })

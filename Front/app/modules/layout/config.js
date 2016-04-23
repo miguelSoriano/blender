@@ -4,7 +4,7 @@ let config = function($urlRouterProvider,$stateProvider){
 	$stateProvider
 	.state('/',{
 		url:'/',
-		template:'<h1>Hello</h1>',
+		template:'',
 		controller
 	})
 }
