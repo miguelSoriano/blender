@@ -13,11 +13,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="EventStatuses")
-public class EventStatuses {
+@Table(name="CohabitationCategories")
+public class CohabitationCategory {
 	@Id 
 	@GeneratedValue
-	@Column(name="idEventStatuses")
+	@Column(name="idCohabitationCategories")
 	private int id;
 	
 	@Column(name="title")	
@@ -34,7 +34,6 @@ public class EventStatuses {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedDate;
 	
-
 	public int getId() {
 		return id;
 	}

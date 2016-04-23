@@ -1,12 +1,13 @@
 package globant.blender.repository;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import globant.blender.model.Location;
-import globant.blender.model.User;
+import globant.blender.model.SocialEvent;
 
 @Repository
-public interface LocationsRepository extends CrudRepository<Location, Integer>{
-	
+public interface SocialEventsRepository extends CrudRepository<SocialEvent, Integer>{
+
 }

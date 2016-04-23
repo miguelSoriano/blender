@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="EventsCategories")
-public class EventsCategories {
+public class EventsCategory {
 	@Id 
 	@GeneratedValue
 	@Column(name="idEventsCategories")

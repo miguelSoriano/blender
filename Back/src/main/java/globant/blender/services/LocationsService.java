@@ -1,8 +1,10 @@
 package globant.blender.services;
 
-import globant.blender.model.Locations;
+import globant.blender.model.Location;
 
 public interface LocationsService {
 
-	void persistLocation(Locations location);
+	void persistLocation(Location location);
+	
+	Location findById(Integer id);
 }

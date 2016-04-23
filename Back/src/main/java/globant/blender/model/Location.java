@@ -13,11 +13,12 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="CohabitationCategories")
-public class CohabitationCategories {
+@Table(name="locations")
+public class Location {
+	
 	@Id 
 	@GeneratedValue
-	@Column(name="idCohabitationCategories")
+	@Column(name="idLocations")
 	private int id;
 	
 	@Column(name="title")	

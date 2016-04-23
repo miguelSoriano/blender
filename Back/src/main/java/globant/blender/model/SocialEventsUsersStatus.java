@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="SocialEventsUsersStatuses")
-public class SocialEventsUsersStatuses {
+public class SocialEventsUsersStatus {
 	@Id 
 	@GeneratedValue
 	@Column(name="idSocialEventsUsersStatuses")
