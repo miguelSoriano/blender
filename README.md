@@ -1,5 +1,5 @@
 # blender
-Globaton Project 
+Personal Project 
 #Run app
 
 Package instalation
